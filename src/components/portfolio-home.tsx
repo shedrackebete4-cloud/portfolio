@@ -147,9 +147,7 @@ export function PortfolioHome() {
             ) : (
               <div className="flex aspect-[4/5] flex-col justify-end p-6">
                 <p className="font-display text-3xl">{content.name.split(" ")[0]}</p>
-                <p className="mt-2 text-sm text-muted">
-                  Add a portrait URL in Studio to replace this panel.
-                </p>
+                <p className="mt-2 text-sm text-muted">Portrait coming soon.</p>
               </div>
             )}
           </div>
@@ -192,13 +190,7 @@ export function PortfolioHome() {
               !content.contact.linkedin &&
               !content.contact.whatsapp &&
               !content.contact.calendar ? (
-                <p className="text-sm text-muted">
-                  Add email, LinkedIn, or a calendar link in{" "}
-                  <Link to="/studio" className="text-fg underline underline-offset-4">
-                    Studio
-                  </Link>
-                  .
-                </p>
+                <p className="text-sm text-muted">Contact details coming soon.</p>
               ) : null}
             </div>
           </div>

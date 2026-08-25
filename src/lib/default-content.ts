@@ -8,7 +8,7 @@ export const DEFAULT_CONTENT: SiteContent = {
   intro:
     "I design operating systems, lead projects that actually finish, and train people so the work sticks. From factory floors to studios and brand teams, the pattern is the same: broken processes, under-trained teams, and tools that never quite get used.",
   about:
-    "I started in FMCG operations, moved into marketing consulting, then into the fast-paced worlds of fitness and fashion. Across all of them, the same problems kept showing up: unclear ownership, firefighting instead of rhythm, and technology sitting unused.\n\nI focus on three things: designing and improving operational systems, leading cross-functional projects to completion, and training teams so the system survives without me.\n\nThis site is a living portfolio. Replace the starter work below with your real projects, photos, videos, and links from Studio.",
+    "I started in FMCG operations, moved into marketing consulting, then into the fast-paced worlds of fitness and fashion. Across all of them, the same problems kept showing up: unclear ownership, firefighting instead of rhythm, and technology sitting unused.\n\nI focus on three things: designing and improving operational systems, leading cross-functional projects to completion, and training teams so the system survives without me.",
   photoUrl: "",
   stats: [
     { id: "s1", value: "9 yrs", label: "Operational experience" },
@@ -50,76 +50,94 @@ export const DEFAULT_CONTENT: SiteContent = {
   ],
   projects: [
     {
-      id: "p-fmcg",
-      title: "Operating cadence for a fragmented FMCG team",
-      industry: "FMCG",
-      role: "Operations lead",
-      year: "Starter",
+      id: "p-nextforge",
+      title: "NextForge Academy",
+      industry: "EdTech",
+      role: "Founder & Full-Stack Developer",
+      year: "",
       summary:
-        "Replaced daily firefighting with a simple operating rhythm across warehouse, sales, and merchandising.",
+        "Full-stack Learning Management System platform built end to end — course delivery, payments, and video, deployed with CI/CD.",
       challenge:
-        "Handoffs between warehouse, sales, and merchandising were informal. Issues surfaced late, and supervisors ran the day from memory.",
+        "Needed a self-hosted LMS that could handle course delivery, payments, and video without relying on a third-party platform.",
       action:
-        "Mapped the end-to-end flow, introduced a short daily and weekly cadence, and trained supervisors to run the board without escalation.",
+        "Built the backend on Node.js, Express, and SQLite, integrated Paystack for payments and JaaS for video, and shipped it to Northflank with a GitHub CI/CD pipeline.",
       result:
-        "Clearer ownership, fewer last-minute surprises, and a playbook the team could follow. Replace this starter story with your real numbers.",
-      tags: ["Operations", "Training", "Project Management"],
+        "A working, deployed LMS platform powering NextForge Academy's course delivery.",
+      tags: ["Tech"],
       media: [],
       links: [],
     },
     {
-      id: "p-consulting",
-      title: "Delivery system for a marketing consultancy",
-      industry: "Marketing consulting",
-      role: "Project & operations",
-      year: "Starter",
+      id: "p-kolo",
+      title: "Kolo",
+      industry: "Fintech",
+      role: "Founder & Developer",
+      year: "",
       summary:
-        "Turned ad-hoc client work into a repeatable delivery system with checkpoints, owners, and a shared toolkit.",
+        "Goal-tracking and bank-linking app for Nigerian users, with open-banking integration for automatic savings tracking.",
       challenge:
-        "Projects lived in inboxes. Scope drifted, status was tribal knowledge, and new joiners took too long to become useful.",
+        "Nigerian users lack simple tools that connect savings goals directly to their real bank activity.",
       action:
-        "Designed a lightweight project spine, standardized briefs and reviews, and trained consultants on the tools so delivery was visible.",
+        "Scaffolded a Node.js and Express backend on Supabase, integrated Mono's open-banking API for bank linking, and built a full React UI with a dark navy design system.",
       result:
-        "More predictable delivery and faster onboarding. Edit this card with a real client-safe case study.",
-      tags: ["Project Management", "Tech", "Training"],
+        "Backend and UI scaffolded; currently in development, not yet deployed.",
+      tags: ["Tech"],
       media: [],
       links: [],
     },
     {
-      id: "p-fitness",
-      title: "Studio operations and coach enablement",
-      industry: "Fitness",
-      role: "Operations & trainer",
-      year: "Starter",
+      id: "p-pmexam",
+      title: "PM Foundations Exam Tool",
+      industry: "EdTech / Training",
+      role: "Developer",
+      year: "",
       summary:
-        "Scaled studio operations while training coaches to deliver a consistent member experience.",
+        "Web-based assessment tool for the PM Foundations curriculum, with a 68-question pool and automated results delivery.",
       challenge:
-        "Growth outpaced process. Class quality varied by coach, and floor operations depended on a few people.",
+        "Codarhq's PM Foundations course needed a way for students to self-assess against a large, randomized question pool.",
       action:
-        "Documented the member journey, built simple SOPs, and ran practical training so coaches could own the floor.",
+        "Built and deployed a web assessment tool with a 68-question pool and EmailJS integration for results delivery, hosted on Netlify.",
       result:
-        "More consistent sessions and a team that could run a busy day without constant supervision. Swap in your studio story.",
-      tags: ["Operations", "Training"],
+        "Live assessment tool in use for the PM Foundations curriculum.",
+      tags: ["Tech", "Training"],
+      media: [],
+      links: [{ id: "l-pmexam", label: "Live site", url: "https://pmexam.netlify.app" }],
+    },
+    {
+      id: "p-cppl-ledger",
+      title: "CPPL Staff Ledger",
+      industry: "HR / Operations",
+      role: "Developer",
+      year: "",
+      summary:
+        "Staff record management system for Customer Passion Points Limited — employment details, documents, dashboards, and reminders.",
+      challenge:
+        "CPPL's staff records, certifications, and key dates lived across scattered documents with no central system.",
+      action:
+        "Built a React-based staff ledger backed by Google Sheets and Drive, with per-department and per-staff dashboards, document attachments, and reminders for birthdays and work anniversaries.",
+      result:
+        "An internal HR system giving CPPL centralized staff records and automatic reminders.",
+      tags: ["Tech", "Operations"],
       media: [],
       links: [],
     },
     {
-      id: "p-fashion",
-      title: "Fashion operations, inventory, and team training",
-      industry: "Fashion",
-      role: "Operations lead",
-      year: "Starter",
+      id: "p-optiflow",
+      title: "Optiflow Ops Solutions Website",
+      industry: "Operations consulting",
+      role: "Founder & Developer",
+      year: "",
       summary:
-        "Brought order to product flow and trained the team to run stock, floor, and vendor work as one system.",
+        "Company website for Optiflow Ops Solutions Limited, built and deployed on a Node.js stack with navy/cyan branding.",
       challenge:
-        "Stock, floor, and vendor communication ran on chat threads. Stockouts and last-minute scrambles were normal.",
+        "Optiflow needed a live web presence that reflected its operations-consulting brand.",
       action:
-        "Set a simple inventory and floor rhythm, introduced shared trackers, and trained the team on the new way of working.",
+        "Designed and built the site on Node.js with a navy and cyan brand system.",
       result:
-        "Tighter stock visibility and a calmer floor. Replace with a real collection, season, or store story — photos and video welcome.",
-      tags: ["Operations", "Tech", "Training"],
+        "Live company site for Optiflow Ops Solutions.",
+      tags: ["Tech", "Operations"],
       media: [],
-      links: [],
+      links: [{ id: "l-optiflow", label: "Live site", url: "https://optiflowops.online" }],
     },
   ],
   contact: {

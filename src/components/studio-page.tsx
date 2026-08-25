@@ -7,6 +7,7 @@ import { Input, Label, Textarea } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { DEFAULT_CONTENT } from "@/lib/default-content";
 import { usePortfolioStore } from "@/lib/portfolio-store";
+import { saveSiteContent } from "@/lib/site-content";
 import { TAGS, type MediaItem, type Project, type SiteContent } from "@/lib/portfolio-types";
 import { uid } from "@/lib/utils";
 
@@ -32,8 +33,20 @@ export function StudioPage() {
   const setContent = usePortfolioStore((s) => s.setContent);
   const reset = usePortfolioStore((s) => s.reset);
   const [openId, setOpenId] = useState<string | null>(content.projects[0]?.id ?? null);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const fileRef = useRef<HTMLInputElement>(null);
   const importRef = useRef<HTMLInputElement>(null);
+
+  const publish = async () => {
+    setSaveState("saving");
+    try {
+      await saveSiteContent({ data: content });
+      setSaveState("saved");
+      setTimeout(() => setSaveState("idle"), 2000);
+    } catch {
+      setSaveState("error");
+    }
+  };
 
   const update = (patch: Partial<SiteContent>) => setContent({ ...content, ...patch });
 
@@ -79,11 +92,21 @@ export function StudioPage() {
         <p className="text-xs tracking-[0.2em] text-muted uppercase">Studio</p>
         <h1 className="font-display mt-2 text-4xl">Edit your site</h1>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          Changes save in this browser automatically and show on the public pages. Add image URLs,
-          YouTube or Vimeo links, and any external links. You can also upload a photo from your device.
+          Edits here stay in this browser until you publish. Click "Publish" to push them live for
+          every visitor. Add image URLs, YouTube or Vimeo links, and any external links. You can also
+          upload a photo from your device.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-6 flex flex-wrap items-center gap-2">
+          <Button size="sm" onClick={() => void publish()} disabled={saveState === "saving"}>
+            {saveState === "saving" ? "Publishing…" : "Publish"}
+          </Button>
+          {saveState === "saved" ? (
+            <span className="text-xs text-muted">Published.</span>
+          ) : null}
+          {saveState === "error" ? (
+            <span className="text-xs text-red-500">Couldn't publish — try again.</span>
+          ) : null}
           <Button asChild variant="outline" size="sm">
             <Link to="/">View site</Link>
           </Button>
