@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: "Instrument Serif";
+      src: url("fonts/InstrumentSerif-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Instrument Serif";
+      src: url("fonts/InstrumentSerif-Italic.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
+    }
+    @font-face {
+      font-family: "Figtree";
+      src: url("fonts/Figtree-500.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Figtree";
+      src: url("fonts/Figtree-400.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0c0d0c;
+    }
+    .card {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      background: #0c0d0c;
+      color: #eceae4;
+      overflow: hidden;
+    }
+    .frame {
+      position: absolute;
+      inset: 36px;
+      border: 1px solid rgba(143, 168, 154, 0.28);
+      pointer-events: none;
+    }
+    .tick {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: #8fa89a;
+      border-style: solid;
+      opacity: 0.85;
+    }
+    .tick-tl { top: 36px; left: 36px; border-width: 2px 0 0 2px; }
+    .tick-tr { top: 36px; right: 36px; border-width: 2px 2px 0 0; }
+    .tick-bl { bottom: 36px; left: 36px; border-width: 0 0 2px 2px; }
+    .tick-br { bottom: 36px; right: 36px; border-width: 0 2px 2px 0; }
+    .constellation {
+      position: absolute;
+      inset: 0;
+      opacity: 0.38;
+    }
+    .lockup {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 72px 180px;
+    }
+    .kicker {
+      font-family: "Figtree", sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: #8fa89a;
+      margin-bottom: 28px;
+    }
+    .name {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: 118px;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: #eceae4;
+    }
+    .rule {
+      width: 88px;
+      height: 2px;
+      background: #8fa89a;
+      margin: 28px 0 22px;
+    }
+    .tag {
+      font-family: "Figtree", sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      color: #9a968c;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <svg class="constellation" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="#8fa89a" stroke-width="1.2">
+        <path d="M92 118 L168 86 L248 142 L198 214 L118 196 Z" />
+        <path d="M980 92 L1088 128 L1062 214 L972 188 Z" />
+        <path d="M86 470 L154 508 L128 568 L64 534 Z" />
+        <path d="M1010 448 L1108 486 L1074 560 L980 522 L992 470 Z" />
+        <path d="M168 86 L980 92" opacity="0.35" />
+        <path d="M118 196 L64 534" opacity="0.28" />
+        <path d="M1062 214 L1108 486" opacity="0.28" />
+        <path d="M154 508 L980 522" opacity="0.22" />
+      </g>
+      <g fill="#8fa89a">
+        <circle cx="92" cy="118" r="4.5" />
+        <circle cx="168" cy="86" r="3.2" />
+        <circle cx="248" cy="142" r="4" />
+        <circle cx="198" cy="214" r="3" />
+        <circle cx="118" cy="196" r="3.5" />
+        <circle cx="980" cy="92" r="3.5" />
+        <circle cx="1088" cy="128" r="4.5" />
+        <circle cx="1062" cy="214" r="3" />
+        <circle cx="972" cy="188" r="3.2" />
+        <circle cx="86" cy="470" r="3.2" />
+        <circle cx="154" cy="508" r="4.2" />
+        <circle cx="128" cy="568" r="3" />
+        <circle cx="64" cy="534" r="3.5" />
+        <circle cx="1010" cy="448" r="3" />
+        <circle cx="1108" cy="486" r="4.5" />
+        <circle cx="1074" cy="560" r="3.2" />
+        <circle cx="980" cy="522" r="3.5" />
+        <circle cx="992" cy="470" r="3" />
+      </g>
+    </svg>
+    <div class="frame"></div>
+    <div class="tick tick-tl"></div>
+    <div class="tick tick-tr"></div>
+    <div class="tick tick-bl"></div>
+    <div class="tick tick-br"></div>
+    <div class="lockup">
+      <div class="kicker">Portfolio</div>
+      <div class="name">Shedrack<br />Ebete</div>
+      <div class="rule"></div>
+      <div class="tag">Operations · Systems · Training</div>
+    </div>
+  </div>
+</body>
+</html>

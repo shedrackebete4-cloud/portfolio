@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Shedrack Ebete",
+      "hasCanvas": false,
+      "bodyTextLen": 2864,
+      "bodyTextHash": "8520621df8ef73577025d2b216be42b25f234f0e0aba5dcc677bb625f9a1e8d1",
+      "bodyTextPrefix": "Shedrack Ebete Work Expertise About Contact Studio OPERATIONS · ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Shedrack Ebete",
+      "hasCanvas": false,
+      "bodyTextLen": 2835,
+      "bodyTextHash": "8c1346194cd6b2ed45bfa0d3a8d6e79c0a54770f1ae84458a00887a62b5bb268",
+      "bodyTextPrefix": "Shedrack Ebete Studio OPERATIONS · TECH · TRAINING I turn messy ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
