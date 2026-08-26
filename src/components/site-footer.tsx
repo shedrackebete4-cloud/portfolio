@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { usePortfolioStore } from "@/lib/portfolio-store";
 
 export function SiteFooter() {
@@ -10,9 +9,6 @@ export function SiteFooter() {
         <p className="text-sm text-muted">
           {name}
         </p>
-        <Link to="/studio" className="text-sm text-muted hover:text-fg">
-          Manage content in Studio
-        </Link>
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Navigate } from "@tanstack/react-router";
 import { authEnabled, signOut } from "./client";
+import { isOwnerEmail } from "./owner";
 import { useCurrentUser, useCurrentUserState } from "./use-current-user";
 
 /**
@@ -42,6 +43,32 @@ export function SignedOut({ children }: { children: ReactNode }) {
  */
 export function RedirectToSignIn({ to = SIGN_IN_PATH }: { to?: string }) {
   return <Navigate to={to} />;
+}
+
+/**
+ * Client-side gate for /studio: redirects signed-out visitors to /login,
+ * shows a plain "not authorized" message for anyone signed in as someone
+ * other than the owner, and only renders `children` for the owner.
+ *
+ * This is UX only — the real boundary is `requireOwnerMiddleware`
+ * (`./owner-middleware.ts`), which every write re-checks server-side. A
+ * signed-in non-owner can still load this UI briefly before the check below
+ * resolves, but cannot save anything.
+ */
+export function RequireOwner({ children }: { children: ReactNode }) {
+  const { user, isPending } = useCurrentUserState();
+  if (isPending) return null;
+  if (!user) return <RedirectToSignIn />;
+  if (!isOwnerEmail(user.primaryEmail)) {
+    return (
+      <div className="mx-auto max-w-md px-4 py-24 text-center">
+        <p className="text-sm text-muted">
+          This account isn't authorized to edit this site.
+        </p>
+      </div>
+    );
+  }
+  return <>{children}</>;
 }
 
 /**

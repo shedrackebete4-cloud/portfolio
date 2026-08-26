@@ -1,4 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { isOwnerEmail } from "@/lib/auth/owner";
+import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import { usePortfolioStore } from "@/lib/portfolio-store";
 import { cn } from "@/lib/utils";
 
@@ -11,6 +13,8 @@ const NAV = [
 
 export function SiteHeader({ studio }: { studio?: boolean }) {
   const name = usePortfolioStore((s) => s.content.name);
+  const { user } = useCurrentUserState();
+  const showStudioLink = studio || isOwnerEmail(user?.primaryEmail);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-bg/85 backdrop-blur-md">
@@ -32,15 +36,17 @@ export function SiteHeader({ studio }: { studio?: boolean }) {
               {item.label}
             </Link>
           ))}
-          <Link
-            to="/studio"
-            className={cn(
-              "flex h-11 items-center px-3",
-              studio ? "text-fg" : "text-muted hover:text-fg",
-            )}
-          >
-            Studio
-          </Link>
+          {showStudioLink ? (
+            <Link
+              to="/studio"
+              className={cn(
+                "flex h-11 items-center px-3",
+                studio ? "text-fg" : "text-muted hover:text-fg",
+              )}
+            >
+              Studio
+            </Link>
+          ) : null}
         </nav>
       </div>
     </header>

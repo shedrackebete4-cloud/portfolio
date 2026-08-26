@@ -17,7 +17,7 @@ export function ProjectPage() {
         <SiteHeader />
         <main className="mx-auto max-w-3xl px-4 py-24 text-center">
           <h1 className="font-display text-3xl">Project not found</h1>
-          <p className="mt-3 text-sm text-muted">It may have been removed in Studio.</p>
+          <p className="mt-3 text-sm text-muted">It may have been moved or removed.</p>
           <Button asChild className="mt-8">
             <Link to="/">Back home</Link>
           </Button>
